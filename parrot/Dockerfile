@@ -4,13 +4,12 @@ MAINTAINER qeeqbox
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get upgrade -y 
-RUN apt-get install wget curl nano -y
-RUN apt-get update && apt-get update && apt-get -y full-upgrade
-RUN apt-get -y install gnupg && echo -e "deb https://mirror.parrot.sh/mirrors/parrot rolling main contrib non-free" > /etc/apt/sources.list.d/parrot.list && echo -e "# The parrot repo is located at /etc/apt/sources.list.d/parrot.list" > /etc/apt/sources.list && wget -qO - https://deb.parrotsec.org/parrot/misc/parrotsec.gpg | apt-key add - && apt-get update
+RUN apt-get update && apt-get -y full-upgrade
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends evince file-roller gnome-themes-standard gpicview gtk2-engines-pixbuf ttf-ubuntu-font-family xfce4 xfce4-whiskermenu-plugin xorg xserver-xorg xfce4-indicator-plugin xfce4-terminal numix-icon-theme numix-icon-theme-circle
+    apt-get install -y --no-install-recommends evince file-roller gnome-themes-standard gpicview gtk2-engines-pixbuf ttf-ubuntu-font-family xfce4 xfce4-whiskermenu-plugin xorg xserver-xorg xfce4-indicator-plugin xfce4-terminal numix-icon-theme numix-icon-theme-circle && \
+    apt-get -y install gnupg && echo -e "deb https://mirror.parrot.sh/mirrors/parrot rolling main contrib non-free" > /etc/apt/sources.list.d/parrot.list && echo -e "# The parrot repo is located at /etc/apt/sources.list.d/parrot.list" > /etc/apt/sources.list && wget -qO - https://deb.parrotsec.org/parrot/misc/parrotsec.gpg | apt-key add - && apt-get update
+
 
 RUN apt-get install -y xrdp locales supervisor sudo ibus ibus-mozc dbus dbus-x11
 RUN apt -y --allow-downgrades install parrot-interface parrot-interface-full parrot-tools-full
