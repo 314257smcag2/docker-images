@@ -1,8 +1,5 @@
-
 FROM parrotsec/security:latest
-
 MAINTAINER qeeqbox
-
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y parrot-tools-full
@@ -33,14 +30,14 @@ RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 COPY Adwaita-dark-Xfce-with-Qbox-mw4 /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4
 COPY xfce-perchannel-xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
-COPY xfce-perchannel-xml /home/xuser/.config/xfce4/xfconf/xfce-perchannel-xml
+COPY xfce-perchannel-xml /home/shakugan/.config/xfce4/xfconf/xfce-perchannel-xml
 COPY helpers.rc /etc/xdg/xfce4/helpers.rc
 
 RUN ln -s /root/noVNC/vnc_lite.html /root/noVNC/index.html && \
     ln -s /usr/share/icons/Numix-Circle /usr/share/icons/KXicons && \
-    chown -R xuser /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4 && \
-    chown -R xuser /usr/share/icons/KXicons && \
-    chown -R xuser /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
+    chown -R shakugan /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4 && \
+    chown -R shakugan /usr/share/icons/KXicons && \
+    chown -R shakugan /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
 
 
 RUN echo "xfce4-session" > /etc/skel/.xsession
