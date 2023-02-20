@@ -1,4 +1,4 @@
-FROM parrotsec/core:rolling
+FROM parrotsec/security:rolling
 
 MAINTAINER qeeqbox
 
