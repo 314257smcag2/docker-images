@@ -26,7 +26,10 @@ RUN sed -i -e 's/LogLevel=DEBUG/LogLevel=CORE/g' /etc/xrdp/xrdp.ini && \
     sed -i -e 's/SyslogLevel=DEBUG/SyslogLevel=CORE/g' /etc/xrdp/sesman.ini && \
     sed -i -e 's/EnableSyslog=true/EnableSyslog=false/g' /etc/xrdp/sesman.ini
 
-RUN useradd -m -s /bin/bash -G sudo xuser
+RUN useradd -m -s /bin/bash shakugan
+RUN usermod -append --groups sudo shakugan
+RUN echo "shakugan:AliAly032230" | chpasswd
+RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 COPY Adwaita-dark-Xfce-with-Qbox-mw4 /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4
 COPY xfce-perchannel-xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
