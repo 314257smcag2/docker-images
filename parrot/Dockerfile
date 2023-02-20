@@ -1,7 +1,6 @@
 FROM parrotsec/security:latest
 MAINTAINER qeeqbox
 ENV DEBIAN_FRONTEND=noninteractive
-ENV privilege
 
 RUN apt-get update && apt-get install -y parrot-tools-full
 
