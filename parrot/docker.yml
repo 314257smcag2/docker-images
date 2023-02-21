@@ -1,7 +1,6 @@
 services:
   vps:
     build: .
-    privileged: true
     shm_size: 128gb
     ports:
       - "8088:8088"
