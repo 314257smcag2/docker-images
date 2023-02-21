@@ -1,4 +1,4 @@
-FROM parrotsec/security:latest
+FROM arrot.run/security:latest
 MAINTAINER qeeqbox
 ENV DEBIAN_FRONTEND=noninteractive
 
