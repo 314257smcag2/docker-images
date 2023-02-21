@@ -40,7 +40,6 @@ RUN ln -s /root/noVNC/vnc.html /root/noVNC/index.html && \
     chown -R shakugan /usr/share/icons/KXicons && \
     chown -R shakugan /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
 
-
 RUN echo "xfce4-session" > /etc/skel/.xsession
     
 RUN apt-get install -y xfce4-taskmanager mousepad wget
@@ -49,6 +48,10 @@ RUN wget https://oswallpapers.com/wp-content/uploads/2020/04/default-1.jpg -O /u
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN chown root:root /usr/bin/sudo
+RUN chown shakugan:shakugan /usr/bin/sudo
+RUN chmod 4755 /usr/bin/sudo
 
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
